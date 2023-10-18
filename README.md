@@ -1,42 +1,30 @@
-## Application Details
-|               |
-| ------------- |
-|**Generation Date and Time**<br>Tue Oct 10 2023 11:33:26 GMT-0300 (Brasilia Standard Time)|
-|**App Generator**<br>@sap/generator-fiori-freestyle|
-|**App Generator Version**<br>1.11.1|
-|**Generation Platform**<br>Visual Studio Code|
-|**Template Used**<br>simple|
-|**Service Type**<br>OData Url|
-|**Service URL**<br>https://services.odata.org/northwind/northwind.svc/
-|**Module Name**<br>browser-orders|
-|**Application Title**<br>Browser Orders|
-|**Namespace**<br>com.lab2dev|
-|**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.119.0|
-|**Enable Code Assist Libraries**<br>False|
-|**Enable TypeScript**<br>False|
-|**Add Eslint configuration**<br>False|
+# Sistema de Gerenciamento de Pedidos
 
-## browser-orders
+**Descrição do Projeto**: Este projeto é um sistema de gerenciamento de pedidos que permite aos usuários visualizar e gerenciar pedidos de clientes. Ele fornece uma interface de usuário para listar pedidos, visualizar detalhes de pedidos específicos e adicionar novos pedidos.
 
-A Fiori application.
+## Pré-requisitos
 
-### Starting the generated app
+- [SAP UI5](https://sapui5.hana.ondemand.com/)
+- [OData Service](https://www.odata.org/)
+- [SAP Web IDE](https://developers.sap.com/tutorials/webide-basic-install.html) (opcional, se estiver desenvolvendo no SAP Cloud Platform)
 
--   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  In order to launch the generated app, simply run the following from the generated app root folder:
+## Instalação
 
-```
-    npm start
-```
+1. Clone o repositório em sua máquina local.
+   ```
+   git clone https://github.com/seu-usuario/sistema-gerenciamento-pedidos.git
+   ```
 
-- It is also possible to run the application using mock data that reflects the OData Service URL supplied during application generation.  In order to run the application with Mock Data, run the following from the generated app root folder:
+2. Abra o projeto no SAP Web IDE (ou em sua IDE preferida).
 
-```
-    npm run start-mock
-```
+3. Configure um serviço OData para fornecer dados de pedidos ou use um serviço OData de exemplo.
 
-#### Pre-requisites:
+4. Atualize a URL do serviço OData nas configurações do aplicativo (por exemplo, no arquivo `manifest.json`).
 
-1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
+5. Execute o aplicativo no seu ambiente SAP UI5 ou no navegador.
 
+## Uso
 
+- Navegue pela lista de pedidos.
+- Clique em um pedido para visualizar detalhes.
+- Pesquise pedidos pelo número do pedido.

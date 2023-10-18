@@ -1,0 +1,44 @@
+<View 
+    controllerName="com.lab2dev.browserorders.controller.Detail"
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc">
+	<Page title="Order Details">
+		<content>
+			<Table 
+                id="orderDetailsTable"
+				class="sapUiResponsiveMargin"
+				width="auto"
+                items="{ path: '/Order_Details', sorter: { path: 'OrderID' }}">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{orderID}" />
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<Text text="ID" />
+					</Column>
+					<Column>
+						<Text text="Unit Price" />
+					</Column>
+					<Column>
+						<Text text="Quantity" />
+					</Column>
+					<Column>
+						<Text text="Total" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem >
+						<cells>
+							<ObjectIdentifier title="{ProductID}" />
+							<Text text="R${UnitPrice}" />
+							<Text text="{Quantity}" />
+							<Text text="R${= (${UnitPrice} * ${Quantity}).toFixed(2)}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</View>

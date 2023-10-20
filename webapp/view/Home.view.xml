@@ -1,7 +1,11 @@
-<View controllerName="com.lab2dev.browserorders.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
-	<Page id="page" title="{orderId}">
+<View 
+	controllerName="com.lab2dev.browserorders.controller.Home" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	displayBlock="true" 
+	xmlns="sap.m">
+	<Page id="page" title="Orders">
 		<content>
-			<List id="invoiceList" class="sapUiResponsiveMargin" width="auto" items="{/Orders}">
+			<List id="invoiceList" class="sapUiResponsiveMargin" width="auto" items="{items>/}">
 				<headerToolbar class="sapUiResponsiveMargin">
 					<Toolbar>
 						<SearchField width="50%" search=".onSearch" placeholder="Search" />
@@ -11,18 +15,21 @@
 					</Toolbar>
 				</headerToolbar>
 				<items>
-					<ObjectListItem title="{OrderID}" number="{ path: 'OrderDate', formatter: '.formatter.formatDate' }" type="Navigation"
-					press="onPress" >
+					<ObjectListItem 
+						title="{items>OrderID}" 
+						number="{ path: 'items>OrderDate', formatter: '.formatter.formatDate' }" 
+						type="Navigation"
+						press="onPress" >
 						<attributes>
-							<ObjectAttribute text="{ShipName}" />
-							<ObjectAttribute text="Shipped: { path: 'ShippedDate', formatter: '.formatter.formatDate' }" />
+							<ObjectAttribute text="{items>ShipName}" />
+							<ObjectAttribute text="{i18n>Shipped}: { path: 'items>ShippedDate', formatter: '.formatter.formatDate' }" />
 						</attributes>
 						<firstStatus>
 							<ObjectStatus text="{
-                                parts: ['OrderDate', 'ShippedDate'],
+                                parts: ['items>OrderDate', 'items>ShippedDate'],
                                 formatter: '.formatter.shipmentStatusText'}"
 								state="{ 
-									parts: ['OrderDate', 'ShippedDate'],
+									parts: ['items>OrderDate', 'items>ShippedDate'],
 									formatter: '.formatter.shipmentStatus'}"/>
 						</firstStatus>
 					</ObjectListItem>

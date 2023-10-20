@@ -13,14 +13,13 @@ sap.ui.define([
         formatter: formatter,
         onInit: function() {
             const oData = new ODataModel("/northwind/northwind.svc/");
-
             oData.read("/Orders", {
                 urlParameters: {
                     "$expand": "Order_Details"
                 },
                 success: function(data) {
-                    console.log(data)
-                    const jsonModel = new JSONModel(data);
+                    // console.log(data)
+                    const jsonModel = new JSONModel(data.results);
                     this.getView().setModel(jsonModel, "items");
                 }.bind(this),
                 error: function(error) {

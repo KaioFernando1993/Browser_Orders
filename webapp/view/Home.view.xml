@@ -2,7 +2,8 @@
 	controllerName="com.lab2dev.browserorders.controller.Home" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	displayBlock="true" 
-	xmlns="sap.m">
+	xmlns="sap.m"
+	height="100%">
 	<Page id="page" title="Orders">
 		<content>
 			<List id="invoiceList" class="sapUiResponsiveMargin" width="auto" items="{items>/}">

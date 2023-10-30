@@ -52,6 +52,7 @@ sap.ui.define([
             });
 
             return totalPrice;
-        },
+        }
+
     });
 });

@@ -5,9 +5,10 @@ sap.ui.define([
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "../model/formatter",
-    "sap/ui/core/UIComponent"
+    "sap/ui/core/UIComponent",
+    'sap/f/library'
 
-], function(Controller, ODataModel, JSONModel, Filter, FilterOperator, formatter, UIComponent) {
+], function(Controller, ODataModel, JSONModel, Filter, FilterOperator, formatter, UIComponent, fioriLibrary) {
     "use strict";
     return Controller.extend("com.lab2dev.browserorders.controller.Home", {
         formatter: formatter,
@@ -51,6 +52,13 @@ sap.ui.define([
             oRouter.navTo("RouteDetail", {
                 orderId: oEvent.getSource().getProperty("title")
             });
+
         }
+
+        // onPress: function() {
+        //     var oFCL = this.getView().byId("flexibleColumnLayout");
+        //     oFCL.setLayout(fioriLibrary.LayoutType.TwoColumnsMidExpanded);
+        // }
+
     })
 });

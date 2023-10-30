@@ -1,33 +1,24 @@
 <View
     controllerName="com.lab2dev.browserorders.controller.Detail"
     xmlns="sap.m"
+    xmlns:f="sap.f"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:layout="sap.ui.layout"
     xmlns:form="sap.ui.layout.form"
     xmlns:semantic="sap.f.semantic"
-    xmlns:core="sap.ui.core">
-
+    xmlns:core="sap.ui.core"
+    height="100%">
     <Page title="{i18n>titleDetails}">
         <content>
             <Panel class="sapUiNoContentPadding">
                 <content>
                     <form:SimpleForm
                         id="SimpleFormDisplay354wideDual"
-                        editable="false"
                         layout="ResponsiveGridLayout"
-                        title="Address"
-                        labelSpanXL="4"
-                        labelSpanL="3"
-                        labelSpanM="4"
-                        labelSpanS="12"
-                        adjustLabelSpan="false"
-                        emptySpanXL="0"
-                        emptySpanL="4"
-                        emptySpanM="0"
-                        emptySpanS="0"
                         columnsXL="2"
                         columnsL="2"
                         columnsM="1"
-                        singleContainerFullSize="false" 
+                        singleContainerFullSize="false"
                         binding="{items>/}">
                         <form:content>
                             <core:Title/>
@@ -47,43 +38,87 @@
                     </form:SimpleForm>
                 </content>
             </Panel>
-            
-
-            <Panel class="sapUiNoContentPadding" headerText="{i18n>panelAdress}">
+            <Panel class="sapUiNoContentPadding">
                 <content>
-                    <form:SimpleForm
-                        minWidth="1024"
-                        maxContainerCols="2"
-                        editable="false"
-                        layout="ResponsiveGridLayout"
-                        labelSpanL="3"
-                        labelSpanM="3"
-                        emptySpanL="4"
-                        emptySpanM="4"
-                        columnsL="1"
-                        columnsM="1"
-                        items="{items>/Orders}"
-                    >
-                        <form:content>
-                            <Label text="{i18n>supplierName}" />
-                            <Text text="{items>/ShipName}" />
+                    <IconTabBar id="idIconTabBarMulti" class="sapUiResponsiveContentPadding"  expanded="{SimpleForm>/shippingInfo}">
+                        <items>
+                            <IconTabFilter 
+                            id="closeTableIcon" 
+                            icon="sap-icon://shipping-status" 
+                            key="attachments" 
+                            text="{i18n>attachments}"
+                            press="onCloseTable">
+                            <Panel class="sapUiNoContentPadding" headerText="{i18n>ObjectSupplierTabTitleAdress}">
+                                <content>
+                                    <!-- Conteúdo para a guia "attachments" -->
+                                    <form:SimpleForm
+                                        id="formAttachments"
+                                        layout="ResponsiveGridLayout"
+                                        columnsL="1"
+                                        columnsM="1"
+                                        items="{items>/Orders}">
 
-                            <Label text="{i18n>Street}" />
-                            <Text text="{items>/ShipAddress}" />
-
-                            <Label text="{i18n>supplierZipcode} / {i18n>supplierCity}" />
-                            <Text text="{= ${items>/ShipPostalCode} + ' / ' + ${items>/ShipCity}}" />
-
-                            <Label text="{i18n>Region}" />
-                            <Text text="{items>/ShipRegion}" />
-
-                            <Label text="{i18n>supplierCountry}" />
-                            <Text text="{items>/ShipCountry}" />
-                        </form:content>
-                    </form:SimpleForm>
+                                        <form:content>
+                                            <Label text="{i18n>supplierName}" />
+                                            <Text text="{items>/ShipName}" />
+                    
+                                            <Label text="{i18n>Street}" />
+                                            <Text text="{items>/ShipAddress}" />
+                    
+                                            <Label text="{i18n>supplierZipcode} / {i18n>supplierCity}" />
+                                            <Text text="{= ${items>/ShipPostalCode} + ' / ' + ${items>/ShipCity}}" />
+                    
+                                            <Label text="{i18n>Region}" />
+                                            <Text text="{items>/ShipRegion}" />
+                    
+                                            <Label text="{i18n>supplierCountry}" />
+                                            <Text text="{items>/ShipCountry}" />
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </content>
+                            </Panel>
+                            </IconTabFilter>
+                            
+                            <IconTabFilter 
+                            icon="sap-icon://customer" 
+                            key="notes" 
+                            text="{i18n>notes}" 
+                            type="Navigation">
+                            <Panel class="sapUiNoContentPadding" headerText="{i18n>ObjectSupplierTabTitleProcessor}">
+                                <content>
+                                    <form:SimpleForm
+                                        id="formNotes"
+                                        editable="false"
+                                        layout="ResponsiveGridLayout"
+                                        columnsL="1"
+                                        columnsM="1"
+                                        items="{items>/Orders}">
+                
+                                        <form:content>
+                                            <Label text="{i18n>ObjectSupplierName}" />
+                                            <Text text="{items>/Employee/FirstName} {items>/Employee/LastName}" />
+                
+                                            <Label text="{i18n>Employee}" />
+                                            <Text text="{items>/Employee/EmployeeID}" />
+                
+                                            <Label text="{i18n>Job}" />
+                                            <Text text="{items>/Employee/Title}" />
+                
+                                            <Label text="{i18n>Phone}" />
+                                            <Text text="{items>/Employee/HomePhone}" />
+                
+                                            <core:Title />
+                                            <Label text="{i18n>Picture}" />
+                                            <Image/>
+                                        </form:content>
+                                    </form:SimpleForm>
+                                </content>
+                            </Panel>
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
                 </content>
             </Panel>
-
             <Table 
                 class="sapUiResponsiveMargin"
                 width="auto" 
